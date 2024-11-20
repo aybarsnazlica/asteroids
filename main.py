@@ -12,6 +12,7 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
+    dt = 0
     running = True
 
     while running:
@@ -22,7 +23,8 @@ def main():
         # flip() the display to put your work on screen
         pygame.display.flip()
 
-        clock.tick(60)  # limits FPS to 60
+        dt = clock.tick(60)  # limits FPS to 60
+        dt /= 1000
 
     pygame.quit()
 
