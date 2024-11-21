@@ -1,6 +1,7 @@
 import pygame
 
-from constants import *
+from constants import SCREEN_WIDTH, SCREEN_HEIGHT
+from player import Player
 
 
 def main():
@@ -12,13 +13,19 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
-    dt = 0
+    # dt = 0
+
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
     running = True
 
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+
+        screen.fill("black")
+        player.draw(screen)
 
         # flip() the display to put your work on screen
         pygame.display.flip()
